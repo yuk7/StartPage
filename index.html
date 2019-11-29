@@ -12,10 +12,10 @@
 
                 if(/\w.:\/\/.+$/.test(query)) {
                     location.href = query;
-                } else if(/^.+ [\.|\,]d$/.test(query)) {
-                    var encoded = "https://duckduckgo.com/?q=" + encodeURIComponent("\\" + query.match(/^(.+) [\.|\,]d$/)[1]);
+                } else if(/^.+ [\.|\,]$/.test(query)) {
+                    var encoded = "https://duckduckgo.com/?q=" + encodeURIComponent("\\" + query.match(/^(.+) [\.|\,]$/)[1]);
                     location.href = encoded;
-                } else if(/^\S+\.[com|edu|io|jp|cn|kr]\S*$/.test(query)) {
+                } else if(/^\S+\.\S+$/.test(query)) {
                     location.href = "http://" + query;
                 } else {
                     var encoded = "https://www.google.com/search?q=" + encodeURIComponent(query);
