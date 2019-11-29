@@ -10,8 +10,15 @@
                 var form = document.getElementsByName("form")[0];
                 var query = document.getElementById("query").value;
 
-                var encoded = "https://www.google.com/search?q=" + encodeURIComponent(query);
-                location.href = encoded;
+                if(/\w.:\/\/.+/.test(query)) {
+                    location.href = query;
+                } else if(/.+ [\.|\,]d$/.test(query)) {
+                    var encoded = "https://duckduckgo.com/?q=" + encodeURIComponent("\\" + query.match(/(.+) [\.|\,]d$/)[1]);
+                    location.href = encoded;
+                } else {
+                    var encoded = "https://www.google.com/search?q=" + encodeURIComponent(query);
+                    location.href = encoded;
+                }
             }
         }
     </script>
