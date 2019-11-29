@@ -1,0 +1,32 @@
+body {
+  background-color: #23242C;
+}
+
+.center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  position: fixed;
+  text-align: center;
+}
+
+#query {
+  font-size: 100px;
+  cursor: default;
+  color: white;
+  text-align: center;
+  text-shadow: rgba(0,0,0,0.8) 1px 1px 2px;
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
+#query::-webkit-input-placeholder {
+  color: white;
+}
+#query::-moz-placeholder {
+  color: white;
+}
+#query::-ms-input-placeholder {
+  color: white;
+}
