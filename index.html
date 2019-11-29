@@ -4,12 +4,23 @@
 <head>
     <title>Start</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <script>
+        function enter() {
+            if (window.event.keyCode == 13) {
+                var form = document.getElementsByName("form")[0];
+                var query = document.getElementById("query").value;
+
+                var encoded = "https://www.google.com/search?q=" + encodeURIComponent(query);
+                location.href = encoded;
+            }
+        }
+    </script>
 </head>
 
-<body onload="document.form.q.focus()" onkeypress="document.form.q.focus()">
-    <form class="center" name="form" method="get" action="http://www.google.com/search" autocomplete="off">
-        <input name="q" id="query" maxlength="" placeholder="Enter words..." />
-    </form>
+<body onload="document.getElementById('query').focus()">
+    <div class="center" name="form">
+        <input name="q" id="query" onkeypress="enter();" autocomplete="off" placeholder="Enter words..." />
+    </div>
 </body>
 
 </html>
