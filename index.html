@@ -15,6 +15,8 @@
                 } else if(/.+ [\.|\,]d$/.test(query)) {
                     var encoded = "https://duckduckgo.com/?q=" + encodeURIComponent("\\" + query.match(/(.+) [\.|\,]d$/)[1]);
                     location.href = encoded;
+                } else if(/\S+\.[com|edu|io|jp|cn|kr]\S*$/.test(query)) {
+                    location.href = "http://" + query;
                 } else {
                     var encoded = "https://www.google.com/search?q=" + encodeURIComponent(query);
                     location.href = encoded;
