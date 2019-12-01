@@ -12,10 +12,10 @@ function enter() {
 
         if(/\w.:\/\/.+$/.test(query)) {
             location.href = query;
-        } else if(/^.+ [\.|\,]$/.test(query)) {
-            var encoded = "https://duckduckgo.com/?q=" + encodeURIComponent("\\" + query.match(/^(.+) [\.|\,]$/)[1]);
+        } else if(/^.+ [\.\,]$/.test(query)) {
+            var encoded = "https://duckduckgo.com/?q=" + encodeURIComponent("\\" + query.match(/^(.+) [\.\,]$/)[1]);
             location.href = encoded;
-        } else if(/^\S+\.\S+$/.test(query)) {
+        } else if(/^\S+\.\S+$/.test(query) | /^localhost\S*$/.test(query)) {
             location.href = "http://" + query;
         } else {
             var encoded = "https://www.google.com/search?q=" + encodeURIComponent(query);
